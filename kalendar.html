@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Onest:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Kalendář akcí | PLACEK Ostrava</title>
+  <style>
+body {
+    font-family: Onest;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+header {
+    background: black;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box; /* Added to ensure padding doesn't cause overflow */
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; /* Aligns nav items to the right */
+    flex-grow: 1; /* Ensures the nav takes up remaining space */
+    overflow: hidden; /* Prevents overflow */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* Prevents wrapping of text */
+    text-overflow: ellipsis; /* Adds ellipsis if the text is too long */
+    overflow: hidden; /* Prevents text from overflowing */
+}
+
+nav a:hover {
+    color: #f4a261;
+    transform: scale(1.1);
+}
+
+.hero {
+    background: url('img/background.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    text-shadow: 5px 5px 10px black;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    padding: 0 20px;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #font-size: 32px;
+    gap: 10px;
+    #max-width: 800px;
+}
+
+.hero h1 {
+    font-family: 'Onest', sans-serif;
+    font-size: 89px;
+    #margin: 0;
+}
+
+.container {
+
+
+    background: black;
+    color: white;
+    padding-top: 100px;
+    padding-left: 35px;
+
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.logo {
+    height:48px;
+    width: auto;
+}
+.social-icons a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f4a261;
+}
+h1 {
+    font-family: 'Onest', sans-serif;
+    font-size: ;
+}
+.monofont{
+    font-family: 'Azeret Mono', monospace;
+    color: white;
+    #align-items: center;
+    #text-align: center;
+}
+.onestfont{
+    font-family: 'Onest', sans-serif;
+}
+.right-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+/* Skrýt mobilní menu na desktopu */
+.mobile-menu {
+  display: none;
+}
+
+/* Zobrazit desktop menu jen na větších zařízeních */
+.desktop-menu {
+  display: flex;
+}
+
+/* Mobilní styly */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: black;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    width: auto;
+    text-align: right;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-icons {
+    justify-content: flex-end;
+  }
+}
+header.scrolled {
+    background: black; /* změna barvy */
+    padding: 10px 30px; /* menší padding */
+    transition: all 0.3s ease;
+}
+
+header {
+    transition: all 0.3s ease; /* aby změna byla plynulá */
+}
+.kontakty-icons a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 35px;
+  transition: color 0.3s ease;
+}
+
+.kontakty-icons a:hover {
+  color: #f4a261;
+}
+.kontakty-icons{
+        display: flex;
+    gap: 15px;
+}
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".container")?.classList.add("visible");
+
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".mobile-menu");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
+
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="img/logo-white.svg" alt="PLACEK Ostrava logo" /></a>
+    <button class="menu-toggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="right-header desktop-menu">
+      <nav>
+        <a class="onestfont" href="aktuality.html">Aktuality</a>
+        <a class="onestfont" href="kalendar.html">Kalendář akcí</a>
+        <a class="onestfont" href="kavarna.html">Kavárna</a>
+        <a class="onestfont" href="index.html#o-nas">O nás</a>
+        <a class="onestfont" href="kontakty.html">Kontakty</a>
+        <!--<a class="onestfont" href="dary">Darujte</a>-->
+      </nav>
+      <div class="social-icons">
+        <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" title="Newsletter"><i class="fas fa-envelope"></i></a>
+        <a href="https://instagram.com/placek_ostrava" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@placek-ostrava" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com/@placek_ova" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61574674575089" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      <nav>
+        <a class="onestfont" href="aktuality.html">Aktuality</a>
+        <a class="onestfont" href="kalendar.html">Kalendář akcí</a>
+        <a class="onestfont" href="kavarna.html">Kavárna</a>
+        <a class="onestfont" href="index.html#o-nas">O nás</a>
+        <a class="onestfont" href="kontakty.html">Kontakty</a>
+        <!--<a class="onestfont" href="dary">Darujte</a>-->
+      </nav>
+      <div class="social-icons">
+        <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" title="Newsletter"><i class="fas fa-envelope"></i></a>
+        <a href="https://instagram.com/placek_ostrava" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@placek-ostrava" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com/@placek_ova" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61574674575089" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- OBSAH PODSTRÁNKY -->
+    <div class="container">
+        <h1>Kalendář akcí</h1>
+            <h2></h2>
+                <script>
+const calendarId = 'f45471677ddf931872e0e937314d9c7903de211308d8ccb0f1bb5b701c22a59b@group.calendar.google.com'; // např. 'placekova@gmail.com' nebo s @group.calendar.google.com
+const apiKey = 'AIzaSyAJVSJ2ap8mKyxsSvdFEVnhvNXTcxpbb84';
+const maxResults = 100;
+
+const container = document.querySelector('.container');
+
+async function fetchEvents() {
+    const now = new Date().toISOString();
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&maxResults=${maxResults}&timeMin=${now}`;
+
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const events = data.items;
+
+        if (!events || events.length === 0) {
+            container.innerHTML += '<p>Žádné nadcházející akce.</p>';
+            return;
+        }
+
+        const list = document.createElement('ul');
+
+        events.forEach(event => {
+            const start = event.start.dateTime || event.start.date;
+            const end = event.end?.dateTime || event.end?.date || '';
+            const date = new Date(start).toLocaleString('cs-CZ', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${event.summary}</strong><br><span>${date}</span><br>${event.description || ''}<hr>`;
+            list.appendChild(li);
+        });
+
+        container.appendChild(list);
+    } catch (error) {
+        console.error('Chyba při načítání kalendáře:', error);
+        container.innerHTML += '<p>Nepodařilo se načíst kalendář.</p>';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchEvents);
+</script> 
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PlacOva z. s. <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="color: white;">CC-BY-SA 4.0</a>. Všechna práva vyhrazena. Sdílejte a nechte ostatní sdílet za stejných podmínek. <br> <a href="gdpr" style="color: white;">Zásady ochrany osobních údajů</a> <br>
+        This site is hosted on <a href="https://github.com/viki-vavrik/web-test" style="color:white">Github Pages</a>.</p>
+    </footer>
+</body>
+</html>
