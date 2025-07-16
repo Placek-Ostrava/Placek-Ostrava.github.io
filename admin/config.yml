@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Placek-Ostrava/Placek-Ostrava.github.io
   branch: main
-  base_url: https://placekova.cz
-  site_domain: placekova.cz
+  base_url: https://Placek-Ostrava.github.io
+  site_domain: placek-ostrava.github.io
 
 media_folder: img/uploads
 public_folder: /img/uploads
