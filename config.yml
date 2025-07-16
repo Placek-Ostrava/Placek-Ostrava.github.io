@@ -5,18 +5,26 @@ backend:
   base_url: https://placekova.cz
   site_domain: placekova.cz
 
-media_folder: "img/uploads"
-public_folder: "/img/uploads"
+media_folder: img/uploads
+public_folder: /img/uploads
 
 collections:
-  - name: "aktuality"
-    label: "Aktuality"
-    folder: "posts"
+  - name: aktuality
+    label: Aktuality
+    folder: posts
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Titulek", name: "title", widget: "string" }
-      - { label: "Datum", name: "date", widget: "datetime" }
-      - { label: "Kategorie", name: "categories", widget: "list", multiple: true, default: ["obecné"], options: ["tiskové zprávy", "akce", "jiné"] }
-      - { label: "Náhledový obrázek", name: "thumbnail", widget: "image" }
-      - { label: "Tělo článku", name: "body", widget: "markdown" }
+      - { label: Titulek, name: title, widget: string }
+      - { label: Datum, name: date, widget: datetime }
+      - label: Kategorie
+        name: categories
+        widget: list
+        multiple: true
+        default: ["obecné"]
+        options:
+          - tiskové zprávy
+          - akce
+          - jiné
+      - { label: Náhledový obrázek, name: thumbnail, widget: image }
+      - { label: Tělo článku, name: body, widget: markdown }
