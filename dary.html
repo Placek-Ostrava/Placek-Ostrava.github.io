@@ -3,374 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dary | PLACEK Ostrava</title>
   <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Onest:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <title>Dary | PLACEK Ostrava</title>
   <style>
-body {
-    font-family: Onest;
-    margin: 0;
-    padding: 0;
-    background-color: black;
-}
-
-header {
-    background: black;
-    color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-sizing: border-box; /* Added to ensure padding doesn't cause overflow */
-}
-
-nav {
-    display: flex;
-    justify-content: flex-end; /* Aligns nav items to the right */
-    flex-grow: 1; /* Ensures the nav takes up remaining space */
-    overflow: hidden; /* Prevents overflow */
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
-    white-space: nowrap; /* Prevents wrapping of text */
-    text-overflow: ellipsis; /* Adds ellipsis if the text is too long */
-    overflow: hidden; /* Prevents text from overflowing */
-}
-
-nav a:hover {
-    color: #f4a261;
-    transform: scale(1.1);
-}
-
-.hero {
-    background: url('img/background.png') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    text-shadow: 5px 5px 10px black;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    padding: 0 20px;
-}
-
-.hero-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    #font-size: 32px;
-    gap: 10px;
-    #max-width: 800px;
-}
-
-.hero h1 {
-    font-family: 'Onest', sans-serif;
-    font-size: 89px;
-    #margin: 0;
-}
-
-.container {
-
-
-    background: black;
-    color: white;
-    padding-top: 100px;
-    padding-left: 35px;
-
-}
-
-.visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-footer {
-    background: black;
-    color: grey;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 12px;
-    line-height: 1.6;
-}
-.logo {
-    height:48px;
-    width: auto;
-}
-.social-icons a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 25px;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #f4a261;
-}
-h1 {
-    font-family: 'Onest', sans-serif;
-    font-size: ;
-}
-.monofont{
-    font-family: 'Azeret Mono', monospace;
-    color: white;
-    #align-items: center;
-    #text-align: center;
-}
-.onestfont{
-    font-family: 'Onest', sans-serif;
-}
-.right-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 36px;
-    padding: 0 10px;
-  }
-}
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 28px;
-  }
-}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-/* Skrýt mobilní menu na desktopu */
-.mobile-menu {
-  display: none;
-}
-
-/* Zobrazit desktop menu jen na větších zařízeních */
-.desktop-menu {
-  display: flex;
-}
-
-/* Mobilní styly */
-@media (max-width: 768px) {
-  .desktop-menu {
-    display: none;
-  }
-
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: black;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 10px;
-    border: 1px solid white;
-    width: auto;
-    text-align: right;
-  }
-
-  .mobile-menu.open {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .social-icons {
-    justify-content: flex-end;
-  }
-}
-header.scrolled {
-    background: black; /* změna barvy */
-    padding: 10px 30px; /* menší padding */
-    transition: all 0.3s ease;
-}
-
-header {
-    transition: all 0.3s ease; /* aby změna byla plynulá */
-}
-.kontakty-icons a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 35px;
-  transition: color 0.3s ease;
-}
-
-.kontakty-icons a:hover {
-  color: #f4a261;
-}
-.kontakty-icons{
-        display: flex;
-    gap: 15px;
-}
+    body {
+      font-family: 'Onest', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+    }
+    header {
+      background: black;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .logo { height: 48px; width: auto; }
+    .container {
+      max-width: 800px;
+      margin: 120px auto 40px;
+      padding: 20px;
+      background: white;
+      color: black;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    h1, h2 { text-align: center; font-family: 'Onest', sans-serif; }
+    button {
+      background: #e63946;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #ff6b6b; }
+    #qrContainer { display: none; text-align: center; margin-top: 30px; }
+    footer {
+      background: black;
+      color: grey;
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #f4a261;
+      font-weight: bold;
+    }
+    .back-link:hover { text-decoration: underline; }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelector(".container")?.classList.add("visible");
-
-      const toggle = document.querySelector(".menu-toggle");
-      const menu = document.querySelector(".mobile-menu");
-
-      if (toggle && menu) {
-        toggle.addEventListener("click", () => {
-          menu.classList.toggle("open");
-        });
-      }
-
-      const header = document.querySelector("header");
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-    });
-  </script>
 </head>
 <body>
   <header>
-    <a href="index.html"><img class="logo" src="img/logo-white.svg" alt="PLACEK Ostrava logo" /></a>
-    <button class="menu-toggle" aria-label="Menu">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="right-header desktop-menu">
-      <nav>
-        <!--<a class="onestfont" href="aktuality.html">Aktuality</a>-->
-        <!--<a class="onestfont" href="kalendar.html">Kalendář akcí</a>-->
-        <!--<a class="onestfont" href="kavarna.html">Kavárna</a>-->
-        <a class="onestfont" href="index.html#o-nas">O nás</a>
-        <a class="onestfont" href="kontakty.html">Kontakty</a>
-        <a class="onestfont" href="dary.html">Darujte</a>
-      </nav>
-      <div class="social-icons">
-        <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" title="Newsletter"><i class="fas fa-envelope"></i></a>
-        <a href="https://instagram.com/placek_ostrava" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com/@placek-ostrava" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://tiktok.com/@placek_ova" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61574674575089" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      </div>
-    </div>
-
-    <div class="mobile-menu">
-      <nav>
-        <!--<a class="onestfont" href="aktuality.html">Aktuality</a>-->
-        <!--<a class="onestfont" href="kalendar.html">Kalendář akcí</a>-->
-        <!--<a class="onestfont" href="kavarna.html">Kavárna</a>-->
-        <a class="onestfont" href="#o-nas">O nás</a>
-        <a class="onestfont" href="kontakty.html">Kontakty</a>
-        <a class="onestfont" href="dary.html">Darujte</a>
-      </nav>
-      <div class="social-icons">
-        <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" title="Newsletter"><i class="fas fa-envelope"></i></a>
-        <a href="https://instagram.com/placek_ostrava" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com/@placek-ostrava" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://tiktok.com/@placek_ova" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61574674575089" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      </div>
-    </div>
+    <a href="index.html"><img src="img/logo-white.svg" alt="PLACEK Ostrava logo" class="logo" /></a>
   </header>
 
-  <!-- OBSAH PODSTRÁNKY -->
-    <div>
-        <h1 class="container">Dary</h1>
-            <h2></h2>
-            <div class="qr-donation" style="max-width: 800px; margin: auto; padding: 20px 20px; background: white; color: black; border-radius: 16px; box-shadow: 0 0 20px rgba(255,255,255,0.1); font-family: 'Onest', sans-serif;">
-  <h2 style="font-size: 28px; margin-bottom: 10px; font-weight: bold;">Podpořte PLACEK! <span style="color: #e63946"></span></h2>
-  <p style="margin-bottom: 30px; font-size: 16px; line-height: 1.5;">
-    Podpořte nás pravidelným nebo jednorázovým příspěvkem. Vyberte částku a naskenujte QR kód pro snadné nastavení trvalého příkazu ve vaší bance.
-  </p>
-  
-  <form id="qrForm" style="display: flex; flex-direction: column; gap: 15px;">
-    <label style="font-weight: bold;">Zvolte výši daru:</label>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-      <label><input type="radio" name="amount" value="100" checked> 100 Kč</label>
-      <label><input type="radio" name="amount" value="200"> 200 Kč</label>
-      <label><input type="radio" name="amount" value="500"> 500 Kč</label>
-      <label><input type="radio" name="amount" value="1000"> 1000 Kč</label>
-      <label><input type="radio" name="amount" value=""> <input type="number" id="customAmount" placeholder="Jiná částka" style="width: 100px;"> Kč</label>
+  <div class="container">
+    <h1>Podpořte PLACEK Ostrava 💛</h1>
+    <p style="text-align:center;">Vyberte částku a naskenujte QR kód pro snadnou platbu. Transparentní účet: <a href="https://ib.fio.cz/ib/transparent?a=2303185785">2303185785/2010<a> </p>
+
+    <form id="qrForm" style="display: flex; flex-direction: column; gap: 15px;">
+      <label style="font-weight: bold;">Zvolte výši daru:</label>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <label><input type="radio" name="amount" value="100" checked> 100 Kč</label>
+        <label><input type="radio" name="amount" value="200"> 200 Kč</label>
+        <label><input type="radio" name="amount" value="500"> 500 Kč</label>
+        <label><input type="radio" name="amount" value="1000"> 1000 Kč</label>
+        <label><input type="radio" name="amount" value=""> <input type="number" id="customAmount" placeholder="Jiná částka" style="width: 100px;"> Kč</label>
+      </div>
+      <button type="submit">Vygenerovat QR kód</button>
+    </form>
+
+    <div id="qrContainer">
+      <h3 id="qrText"></h3>
+      <canvas id="qrCanvas"></canvas>
+      <p style="margin-top: 10px;">Naskenujte ve své mobilní bankovní aplikaci.</p>
+      <a href="index.html" class="back-link">← Zpět na hlavní stránku</a>
     </div>
-
-    <button type="submit" style="margin-top: 20px; background: #e63946; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer;">Vygenerovat QR kód</button>
-  </form>
-
-  <div id="qrContainer" style="margin-top: 30px; text-align: center; display: none;">
-    <h3>QR kód pro trvalou/jednorázovou platbu:</h3>
-    <canvas id="qrCanvas"></canvas>
-    <p style="margin-top: 10px; text-align: center; font-size: 14px;">Naskenujte ve své mobilní bankovní aplikaci.</p>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-<script>
-  const form = document.getElementById('qrForm');
-  const customAmount = document.getElementById('customAmount');
-  const qrContainer = document.getElementById('qrContainer');
-  const qrCanvas = document.getElementById('qrCanvas');
+  <footer>
+    &copy; 2025 PlacOva z. s. · <a href="mailto:info@placekostrava.cz" style="color:grey;">info@placekostrava.cz</a>
+  </footer>
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script>
+    const form = document.getElementById('qrForm');
+    const customAmount = document.getElementById('customAmount');
+    const qrContainer = document.getElementById('qrContainer');
+    const qrCanvas = document.getElementById('qrCanvas');
+    const qrText = document.getElementById('qrText');
 
-    let selectedAmount = form.querySelector('input[name="amount"]:checked').value;
-    const custom = customAmount.value;
-    if (custom && !isNaN(custom) && Number(custom) > 0) {
-      selectedAmount = Number(custom).toFixed(2);
-    } else {
-      selectedAmount = Number(selectedAmount).toFixed(2);
-    }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let selectedAmount = form.querySelector('input[name="amount"]:checked').value;
+      const custom = customAmount.value;
+      if (custom && !isNaN(custom) && Number(custom) > 0) {
+        selectedAmount = Number(custom).toFixed(2);
+      } else {
+        selectedAmount = Number(selectedAmount).toFixed(2);
+      }
 
-    const iban = 'CZ3020100000002303185785';
-    const recipient = 'Placek Ostrava - PlacOva z. s.';
-    const message = 'dar';
-    const spayd = `SPD*1.0*ACC:${iban}*AM:${selectedAmount}*CC:CZK*MSG:${message}*RN:${recipient}`;
+      const iban = 'CZ3020100000002303185785';
+      const recipient = 'Placek Ostrava - PlacOva z. s.';
+      const message = 'placekostrava.cz/dary';
+      const spayd = `SPD*1.0*ACC:${iban}*AM:${selectedAmount}*CC:CZK*MSG:${message}*RN:${recipient}`;
 
-    const qr = new QRious({
-      element: qrCanvas,
-      value: spayd,
-      size: 256,
-      level: 'H'
+      new QRious({
+        element: qrCanvas,
+        value: spayd,
+        size: 256,
+        level: 'H'
+      });
+
+      qrText.textContent = `Dar ve výši ${selectedAmount} Kč`;
+      qrContainer.style.display = 'block';
     });
-
-    qrContainer.style.display = 'block';
-  });
-</script>
-                
-    </div>
-
-    <footer>
-      <a href="https://github.com/Placek-Ostrava/Placek-Ostrava.github.io" style="color:grey; text-decoration: none;" title="Otevřený kód na GitHubu">&copy; PlacOva z. s. 2025, made with ❤️</a> · <a href="gdpr" style="color:grey;">Zásady ochrany osobních údajů</a>
-    </footer>
+  </script>
 </body>
 </html>
