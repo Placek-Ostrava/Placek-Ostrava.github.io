@@ -16,7 +16,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      text-align: center;
       position: relative;
     }
 
@@ -30,41 +29,41 @@
 
     .content {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       position: relative;
       z-index: 1;
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 800px;
       margin: 0 auto;
     }
 
     .logo {
-      width: 150px;
+      width: 140px;
       height: auto;
-      margin-bottom: 20px;
+      display: block;
+      margin: 0 auto 30px auto;
     }
 
     h1 {
       font-size: 44px;
-      margin-bottom: 40px;
+      text-align: center;
+      margin-bottom: 50px;
       text-shadow: 0 0 10px rgba(0,0,0,0.7);
     }
 
     h2 {
-      font-size: 28px;
-      margin-top: 30px;
-      margin-bottom: 10px;
+      font-size: 26px;
       color: #f4a261;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      border-left: 3px solid #f4a261;
+      padding-left: 10px;
     }
 
     p {
       font-size: 18px;
-      margin: 8px 0;
       color: #eee;
       line-height: 1.6;
+      margin: 6px 0;
     }
 
     a {
@@ -78,7 +77,7 @@
 
     .btn-back {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 40px;
       background: #f4a261;
       color: black;
       text-decoration: none;
@@ -102,7 +101,7 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 36px; }
-      h2 { font-size: 24px; }
+      h2 { font-size: 22px; }
       p { font-size: 16px; }
     }
   </style>
@@ -110,25 +109,35 @@
 <body>
   <div class="content">
     <img src="img/logo-white.svg" alt="PLACEK Ostrava logo" class="logo" />
-    <h1>Kontakty</h1>
+    <h1>Kontakt</h1>
 
-    <h2>PlacOva z. s.</h2>
-    <p><strong>E-mail:</strong> <a href="mailto:info@placekostrava.cz">info@placekostrava.cz</a></p>
-    <p><strong>IČO:</strong> 23200189</p>
-    <p><strong>Sídlo:</strong> Čujkovova 1736/30, Zábřeh, 700 30 Ostrava</p>
-    <p><strong>ID datové schránky:</strong> 3yx7jhv</p>
+    <section>
+      <h2>PlacOva z. s.</h2>
+      <p><strong>E-mail:</strong> <a href="mailto:info@placekostrava.cz">info@placekostrava.cz</a></p>
+      <p><strong>IČO:</strong> 23200189</p>
+      <p><strong>Sídlo:</strong> Čujkovova 1736/30, Zábřeh, 700 30 Ostrava</p>
+      <p><strong>ID datové schránky:</strong> 3yx7jhv</p>
+      <p><strong>Transparentní účet:</strong> 
+        <a href="https://ib.fio.cz/ib/transparent?a=2303185785" target="_blank">
+          2303185785 / 2010
+        </a>
+      </p>
+    </section>
 
-    <h2>Kontakt pro média</h2>
-    <p><strong>Klára Vítková</strong><br />Tisková mluvčí<br />
-      <a href="mailto:mluvci@placekostrava.cz">mluvci@placekostrava.cz</a>
-    </p>
+    <section>
+      <h2>Kontakt pro média</h2>
+      <p><strong>Klára Vítková</strong><br>
+      Tisková mluvčí<br>
+      <a href="mailto:mluvci@placekostrava.cz">mluvci@placekostrava.cz</a></p>
+    </section>
 
     <a href="index.html" class="btn-back"><i class="fa fa-arrow-left"></i> Zpět na hlavní stránku</a>
   </div>
 
   <footer>
     &copy; 2025 PlacOva z. s. · 
-    <a href="mailto:info@placekostrava.cz" style="color:grey;">info@placekostrava.cz</a>
+    <a href="mailto:info@placekostrava.cz" style="color:grey;">info@placekostrava.cz</a> · 
+    <a href="kontakty.html" style="color:grey;">Kontakt</a>
   </footer>
 </body>
 </html>
