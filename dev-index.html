@@ -9,34 +9,31 @@
   <style>
     /* --- Základní nastavení --- */
     html {
-      scroll-behavior: smooth; /* Plynulé scrollování po kliknutí na odkaz */
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Onest', sans-serif;
       margin: 0;
       padding: 0;
-      /* Fixní pozadí, které se při scrollování nehýbe */
       background: url('img/background-dark.png') no-repeat center center fixed; 
       background-size: cover;
       color: white;
       line-height: 1.6;
     }
 
-    /* Tmavý overlay přes celé pozadí pro lepší čitelnost */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7); /* Ztmavíme trochu víc pro čitelnost textů */
+      background: rgba(0, 0, 0, 0.7);
       z-index: -1;
     }
 
-    /* Odkazy */
     a { color: #f4a261; text-decoration: none; transition: 0.3s; }
     a:hover { color: #ffb77a; }
 
-    /* --- HERO SEKCE (Úvodní obrazovka) --- */
+    /* --- HERO SEKCE --- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -89,12 +86,12 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
       text-align: center;
       display: block;
+      cursor: pointer;
     }
 
     .btn:hover {
       background: #ffb77a;
       transform: scale(1.02);
-      color: black;
     }
 
     .btn-outline {
@@ -130,7 +127,7 @@
       max-width: 900px;
       margin: 60px auto;
       padding: 40px;
-      background: rgba(20, 20, 20, 0.85); /* Tmavý box pod textem */
+      background: rgba(20, 20, 20, 0.85);
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
@@ -146,9 +143,11 @@
 
     .info-section h3 {
       font-size: 22px;
-      margin-top: 30px;
-      margin-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 15px;
       color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .info-text {
@@ -177,6 +176,7 @@
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     
     .pricing-title {
@@ -184,6 +184,7 @@
       font-size: 20px;
       color: #f4a261;
       margin-bottom: 5px;
+      text-transform: uppercase;
     }
 
     .pricing-price {
@@ -211,10 +212,15 @@
       background: rgba(0,0,0,0.8);
       margin-top: 50px;
     }
+    
+    .partners-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
 
-    /* Responzivita */
     @media (min-width: 768px) {
       .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid.three-cols { grid-template-columns: 1fr 1fr 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -234,11 +240,13 @@
 
     <div class="buttons">
       <a href="#prostor" class="btn btn-outline">O prostoru & Vybavení</a>
-      <a href="#spoluprace" class="btn btn-outline">Pronájem & Spolupráce</a>
+      <a href="#jednorazove" class="btn btn-outline">Jednorázové akce</a>
+      <a href="#partnerstvi" class="btn btn-outline">Kmenové partnerství</a>
       
-      <a href="dary" class="btn">Podpoř nás</a>
+      <a href="dary.html" class="btn">Podpoř nás</a>
       <a href="https://calendar.google.com/calendar/embed?src=c_cd260a7a83e92b613847c828cfa36356c4593db062f02860f8472cc129603f5a%40group.calendar.google.com&ctz=Europe%2FPrague" class="btn">Kalendář akcí</a>
       <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" class="btn">Newsletter</a>
+      <a href="kontakt.html" class="btn">Kontakty</a>
     </div>
 
     <div class="social-icons">
@@ -252,75 +260,88 @@
   <section id="prostor" class="info-section">
     <h2>Kde je Placek a co v něm najdu?</h2>
     <p class="info-text">
-      Placek Ostrava je komunitní, nízkoprahový a angažovaný prostor organizovaný lidmi odspoda. 
-      Nachází se na adrese <strong>Muglinovská 2734, Moravská Ostrava a Přívoz</strong>.
+      [span_0](start_span)Centrum Placek se nachází na adrese <strong>Muglinovská 2734, Moravská Ostrava a Přívoz</strong> v perfektní dochozí vzdálenosti z centra, Přívozu či Komenského sadů[span_0](end_span). [span_1](start_span)V těsné blízkosti se nachází dopravní uzel Sad B. Němcové, Hlavní vlakové nádraží či tramvajová zastávka Muglinovská[span_1](end_span).
     </p>
     <p class="info-text">
-      Jsme v docházkové vzdálenosti z centra i Přívozu. V těsné blízkosti je dopravní uzel Sad B. Němcové, Hlavní nádraží a stanice Nextbike (50m).
+      [span_2](start_span)Do Placku se dá dostat snadno i na kole díky stanici nextbike lokalizované 50 m od prostoru[span_2](end_span).
     </p>
 
     <h3>Vybavení prostoru</h3>
     <ul>
-      <li>55 m² plně variabilního prostoru (přednáškový sál, open space, kreativní dílna).</li>
-      <li>Kapacita cca 50 míst na sezení / 80 na stání.</li>
-      <li>Profesionální materiální a audiovizuální vybavení.</li>
-      <li>Bar a gastro zázemí (spolupráce s lokálními sociálními podniky).</li>
-      <li>Venkovní „placek“ pro odpočinek či pohybové aktivity.</li>
+      [span_3](start_span)[span_4](start_span)<li>55 m² plně variabilního prostoru s profesionálním materiálním i audiovizuálním vybavením[span_3](end_span)[span_4](end_span).</li>
+      [span_5](start_span)[span_6](start_span)<li>Kapacita prostoru je cca 50 míst na sezení a 80 na stání[span_5](end_span)[span_6](end_span).</li>
+      [span_7](start_span)[span_8](start_span)<li>Možnost proměny na přednáškový sál, kreativní dílnu, intimní prostor nebo open space (např. jóga)[span_7](end_span)[span_8](end_span).</li>
+      [span_9](start_span)[span_10](start_span)<li>Přilehlá místnost s barem a gastro zázemím[span_9](end_span)[span_10](end_span).</li>
+      [span_11](start_span)[span_12](start_span)<li>Organický, přilehlý venkovní placek pro odpočinek či pohybové aktivity[span_11](end_span)[span_12](end_span).</li>
     </ul>
 
     <div class="highlight-box">
-      <strong>⚠️ Bezbariérovost:</strong> Prostor bohužel v současné době není bezbariérový. Na jeho plnohodnotné zpřístupnění i pro osoby se sníženou mobilitou intenzivně sháníme prostředky. Omlouváme se.
+      <strong>Pozor!</strong> Prostor bohužel není v současné době bezbariérový. [span_13](start_span)[span_14](start_span)Na jeho plnohodnotné zpřístupnění i pro osoby se sníženou schopností mobility střádáme v současnosti plány i energii[span_13](end_span)[span_14](end_span).
     </div>
   </section>
 
-  <section id="spoluprace" class="info-section">
-    <h2>Pronájem a Spolupráce</h2>
+  <section id="jednorazove" class="info-section">
+    <h2>Jednorázové využívání</h2>
     <p class="info-text">
-      Ať už chcete uspořádat jednorázový workshop, nebo hledáte trvalé zázemí pro svou organizaci, Placek je tu pro vás. Financování funguje na principu solidarity.
+      [span_15](start_span)Hledáte místo pro Vaše komunitní aktivity, přednášku, workshop, debatu nebo např. otevřená či uzavřená setkání pro Vaši organizaci, sousedství nebo iniciativu?[span_15](end_span).
+    </p>
+    <p class="info-text">
+      [span_16](start_span)Cenová pásma uvedená níže nejsou fixní ani povinná, mohou Vám ale pomoci odhadnout, jaká výše finanční podpory je férová a udržitelná pro všechny[span_16](end_span).
     </p>
 
-    <h3>1. Jednorázové akce</h3>
-    <p class="info-text">Pro workshopy, přednášky, oslavy, debaty nebo sousedská setkání.</p>
-    <div class="pricing-grid">
+    <div class="pricing-grid three-cols">
       <div class="pricing-card">
         <div class="pricing-title">Plackuju za všechny</div>
         <span class="pricing-price">450 Kč / h +</span>
-        <p class="pricing-desc">Pro etablované organizace a firmy. Vyšší částkou podporujete ty, kteří si nájem nemohou dovolit.</p>
+        <p class="pricing-desc">Pro etablované organizace a firmy. [span_17](start_span)Díky Vaší podpoře si budou moci aktivní jednotlivci i neformální kolektivy dovolit participovat v prostoru takřka zdarma[span_17](end_span).</p>
       </div>
       <div class="pricing-card">
         <div class="pricing-title">Plackuju férově</div>
         <span class="pricing-price">350 Kč / h</span>
-        <p class="pricing-desc">Pokrývá průměrné náklady na provoz prostoru, energie a zázemí.</p>
+        [span_18](start_span)<p class="pricing-desc">Tato částka odpovídá průměrným nákladům na hodinový chod Placku od podlahy až ke stropu[span_18](end_span).</p>
       </div>
       <div class="pricing-card">
         <div class="pricing-title">Placek od nuly</div>
-        <span class="pricing-price">Dobrovolné / Do 350 Kč</span>
-        <p class="pricing-desc">Pro nekomerční, studentské a začínající projekty. Možnost domluvy na dobrovolném vstupném.</p>
+        <span class="pricing-price">pár korun až 350 Kč/h</span>
+        <p class="pricing-desc">Začínáte nebo nedisponujete finančním zázemím? [span_19](start_span)[span_20](start_span)Postačí vyzvání návštěvnictva akce k podílení se na dobrovolném vstupném[span_19](end_span)[span_20](end_span).</p>
       </div>
-    </div>
-
-    <h3>2. Kmenové partnerství (Dlouhodobé)</h3>
-    <p class="info-text">Staňte se stabilní součástí Placku! Získáte prioritní přístup k termínům, skladovací prostory, technickou podporu a možnost podílet se na směřování prostoru.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-title">Mecenáš</div>
-        <span class="pricing-price">600 Kč / h (cca 5300/měs)</span>
-        <p class="pricing-desc">Pro organizace, které chtějí podpořit rozvoj občanské společnosti v Ostravě.</p>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-title">Férový partner</div>
-        <span class="pricing-price">350 Kč / h (cca 2100/měs)</span>
-        <p class="pricing-desc">Standardní partnerství pokrývající náklady.</p>
-      </div>
-    </div>
-
-    <div style="margin-top: 30px; text-align: center;">
-      <a href="mailto:info@placekostrava.cz" class="btn">Mám zájem o prostor</a>
-      <p style="margin-top:10px; font-size: 14px; color:#aaa;">nebo pište na info@placekostrava.cz</p>
     </div>
   </section>
 
-  <div class="content">
+  <section id="partnerstvi" class="info-section">
+    <h2>Kmenové partnerství</h2>
+    <p class="info-text">
+      Staňte se trvalou součástí Placku! [span_21](start_span)[span_22](start_span)Připojte se podle svých finančních možností ke kmenovým partnerům a staňte se stabilní součástí angažovaného a volnočasového dění v Ostravě[span_21](end_span)[span_22](end_span).
+    </p>
+    <p class="info-text">
+      [span_23](start_span)[span_24](start_span)<strong>Co získáte?</strong> Prioritní přístup k termínům, stabilní technické i prostorové zázemí, podporu v propagaci a možnost podílet se na společných projektech[span_23](end_span)[span_24](end_span).
+    </p>
+
+    <div class="pricing-grid three-cols">
+      <div class="pricing-card">
+        <div class="pricing-title">Mecenáš</div>
+        <span class="pricing-price">600 Kč / h +</span>
+        <p class="pricing-desc">Jste etablovaná organizace? Díky vám si mohou dovolit participovat i začínající kolektivy. [span_25](start_span)[span_26](start_span)<br><em>Příklad: 2x měsíčně na 3 hodiny od 5300 Kč/měs</em>[span_25](end_span)[span_26](end_span).</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-title">Férový partner</div>
+        <span class="pricing-price">350 Kč / h</span>
+        <p class="pricing-desc">Pokrývá průměrné náklady na chod. Za hodinu profesionálního zázemí a bezpečného prostoru. [span_27](start_span)<br><em>Příklad: 2x měsíčně na 3 hodiny od 2100 Kč/měs</em>[span_27](end_span).</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-title">Placek od nuly</div>
+        <span class="pricing-price">Jinak / až 350 Kč/akce</span>
+        <p class="pricing-desc">Vaše organizace teprve začíná? Postačí minimální příspěvek. [span_28](start_span)[span_29](start_span)[span_30](start_span)Pokud to finance neumožňují, oceníme dobrovolnickou výpomoc (bar, úklid)[span_28](end_span)[span_29](end_span)[span_30](end_span).</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+      <p class="info-text">Máte zájem o jednorázový pronájem nebo trvalé partnerství?</p>
+      <a href="mailto:info@placekostrava.cz" class="btn" style="display:inline-block;">Napište nám na info@placekostrava.cz</a>
+    </div>
+  </section>
+
+  <div class="partners-section">
     <p>Podporují nás:</p>
     <a href="https://ostrava.cz" target="_blank">
       <img src="img/ostrava-logo-negativnia-png.png" alt="Ostrava!!!" class="logo" style="width: 120px;" />
