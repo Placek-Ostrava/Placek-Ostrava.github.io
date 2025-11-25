@@ -20,6 +20,7 @@
       background-size: cover;
       color: white;
       line-height: 1.6;
+      padding-top: 70px; /* Aby obsah nebyl schovaný pod fixním menu */
     }
 
     body::before {
@@ -30,12 +31,74 @@
       z-index: -1;
     }
 
-    a { color: #f4a261; text-decoration: none; transition: 0.3s; }
-    a:hover { color: #ffb77a; }
+    a { text-decoration: none; transition: 0.3s; }
+
+    /* --- NAVIGACE (MENU) --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 70px;
+    }
+
+    .nav-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px; /* Zmenšil jsem mezeru, aby se tam vše vešlo */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: bold;
+      font-size: 15px; /* Mírně menší písmo kvůli délce menu */
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: #f4a261;
+    }
+
+    /* Speciální styl pro tlačítko v menu (Podpoř nás) */
+    .nav-btn-cta {
+      background: #f4a261;
+      color: black !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+    .nav-btn-cta:hover {
+      background: #ffb77a;
+      transform: scale(1.05);
+    }
+
+    /* Hamburger menu (pro mobily) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+    }
 
     /* --- HERO SEKCE --- */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh; 
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -45,8 +108,8 @@
       box-sizing: border-box;
     }
 
-    .logo {
-      width: 180px;
+    .logo-hero {
+      width: 220px; 
       height: auto;
       margin-bottom: 20px;
     }
@@ -64,47 +127,6 @@
       margin: 20px auto 30px;
       color: #eee;
       text-shadow: 0 0 8px rgba(0,0,0,0.5);
-    }
-
-    /* Tlačítka */
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .btn {
-      background: #f4a261;
-      color: black;
-      padding: 14px 28px;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: transform 0.2s, background 0.3s, color 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      text-align: center;
-      display: block;
-      cursor: pointer;
-    }
-
-    /* Vynucení černé barvy textu při najetí myší */
-    .btn:hover {
-      background: #ffb77a;
-      color: black !important; 
-      transform: scale(1.02);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #f4a261;
-      color: #f4a261;
-    }
-    
-    .btn-outline:hover {
-      background: #f4a261;
-      color: black !important;
     }
 
     .social-icons {
@@ -204,6 +226,34 @@
 
     ul { padding-left: 20px; }
     li { margin-bottom: 8px; color: #ddd; }
+    
+    /* Tlačítka */
+    .btn {
+      background: #f4a261;
+      color: black;
+      padding: 14px 28px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #ffb77a; color: black; transform: scale(1.02); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #f4a261;
+      color: #f4a261;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    
+    .btn-outline:hover {
+      background: #f4a261;
+      color: black !important;
+    }
 
     /* Patička */
     footer {
@@ -220,42 +270,80 @@
       padding: 40px 20px;
     }
 
+    /* --- RESPONZIVITA (MOBIL) --- */
+    @media (max-width: 1200px) { /* Změna breakpointu kvůli širšímu menu */
+      .hamburger {
+        display: block; 
+      }
+
+      .nav-menu {
+        position: fixed;
+        left: -100%; 
+        top: 70px; 
+        flex-direction: column;
+        background-color: rgba(10, 10, 10, 0.98);
+        width: 100%;
+        height: calc(100vh - 70px); 
+        text-align: center;
+        transition: 0.3s;
+        padding-top: 40px;
+        gap: 30px;
+      }
+
+      .nav-menu.active {
+        left: 0; 
+      }
+
+      .nav-link {
+        font-size: 22px; 
+      }
+      
+      h1 { font-size: 36px; }
+      .hero-subtitle { font-size: 16px; }
+      .logo-hero { width: 160px; }
+      .info-section { margin: 20px; padding: 25px; }
+    }
+
     @media (min-width: 768px) {
       .pricing-grid { grid-template-columns: 1fr 1fr; }
       .pricing-grid.three-cols { grid-template-columns: 1fr 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 36px; }
-      .hero-subtitle { font-size: 16px; }
-      .logo { width: 140px; }
-      .info-section { margin: 20px; padding: 25px; }
     }
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <img src="img/logo-white.svg" alt="PLACEK Ostrava logo" class="logo" />
-    <h1>„Každé město potřebuje svůj Placek!“</h1>
-    <p class="hero-subtitle">Na webu i prostoru intenzivně pracujeme. Zatím nás můžete sledovat na sítích, podpořit darem nebo se stát součástí komunity.</p>
+  <nav class="navbar">
+    <a href="#">
+      <img src="img/logo-white.svg" alt="Logo" class="nav-logo" />
+    </a>
 
-    <div class="buttons">
-      <a href="#prostor" class="btn btn-outline">O prostoru & Vybavení</a>
-      <a href="#jednorazove" class="btn btn-outline">Jednorázové akce</a>
-      <a href="#partnerstvi" class="btn btn-outline">Kmenové partnerství</a>
-      
-      <a href="dary.html" class="btn">Podpoř nás</a>
-      <a href="https://calendar.google.com/calendar/embed?src=c_cd260a7a83e92b613847c828cfa36356c4593db062f02860f8472cc129603f5a%40group.calendar.google.com&ctz=Europe%2FPrague" class="btn">Kalendář akcí</a>
-      <a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" class="btn">Newsletter</a>
-      <a href="kontakt.html" class="btn">Kontakty</a>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
     </div>
+
+    <ul class="nav-menu">
+      <li><a href="#prostor" class="nav-link">O prostoru</a></li>
+      <li><a href="#jednorazove" class="nav-link">Jednorázové využívání</a></li>
+      <li><a href="#partnerstvi" class="nav-link">Kmenové partnerství</a></li>
+      <li><a href="https://calendar.google.com/calendar/embed?src=c_cd260a7a83e92b613847c828cfa36356c4593db062f02860f8472cc129603f5a%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" class="nav-link">Kalendář</a></li>
+      <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeS1Fdm8CboNRo1k6tiO0ZgS9-zsNxbWP-tevx4O1q1HB2GSg/viewform" target="_blank" class="nav-link">Chci se zapojit</a></li>
+      
+      <li><a href="https://placekova.ecomailapp.cz/public/form/1-43c2cd496486bcc27217c3e790fb4088" target="_blank" class="nav-link">Newsletter</a></li>
+      <li><a href="dary.html" class="nav-link">Podpoř nás</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <img src="img/logo-white.svg" alt="PLACEK Ostrava logo" class="logo-hero" />
+    <h1>„Každé město potřebuje svůj Placek!“</h1>
+    <p class="hero-subtitle">Na webu i prostoru intenzivně pracujeme. Zatím nás můžete sledovat na sociálních sítích, podpořit darem nebo nám pomoci.</p>
 
     <div class="social-icons">
       <a href="https://instagram.com/placek_ostrava" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://tiktok.com/@placek_ova" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a href="https://youtube.com/@placek-ostrava" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61574674575089" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://facebook.com/profile.php?id=61574674575089" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
   </header>
 
@@ -278,7 +366,7 @@
     </ul>
 
     <div class="highlight-box">
-      <strong>Pozor!</strong> Prostor bohužel není v současné době bezbariérový. Na jeho plnohodnotné zpřístupnění i pro osoby se sníženou schopností mobility střádáme v současnosti plány i energii.
+      <strong>Pozor!</strong> Prostor bohužel není v současné době bezbariérový. Na jeho plnohodnotné zpřístupnění i pro osoby se sníženou schopností mobility střádáme v současnosti plány i energii. Moc se omlouváme a děkujeme za pochopení.
     </div>
   </section>
 
@@ -308,6 +396,15 @@
         <p class="pricing-desc">Začínáte nebo nedisponujete finančním zázemím? Postačí vyzvání návštěvnictva akce k podílení se na dobrovolném vstupném.</p>
       </div>
     </div>
+    
+    <div style="margin-top: 30px; text-align: center;">
+      <a href="assets/jednorazove_vyuzivani.pdf" target="_blank" class="btn btn-outline">
+        <i class="fa-solid fa-file-pdf"></i> Více informací (PDF)
+      </a>
+      <br>
+      <p class="info-text">Máte zájem?</p>
+      <a href="mailto:info@placekostrava.cz" class="btn" style="display:inline-block;">Napište nám na info@placekostrava.cz</a>
+    </div>
   </section>
 
   <section id="partnerstvi" class="info-section">
@@ -321,12 +418,12 @@
 
     <div class="pricing-grid three-cols">
       <div class="pricing-card">
-        <div class="pricing-title">Mecenáš</div>
+        <div class="pricing-title">Plackuju MECENÁŠSKY</div>
         <span class="pricing-price">600 Kč / h +</span>
         <p class="pricing-desc">Jste etablovaná organizace? Díky vám si mohou dovolit participovat i začínající kolektivy. <br><em>Příklad: 2x měsíčně na 3 hodiny od 5300 Kč/měs</em>.</p>
       </div>
       <div class="pricing-card">
-        <div class="pricing-title">Férový partner</div>
+        <div class="pricing-title">Plackuju férově</div>
         <span class="pricing-price">350 Kč / h</span>
         <p class="pricing-desc">Pokrývá průměrné náklady na chod. Za hodinu profesionálního zázemí a bezpečného prostoru. <br><em>Příklad: 2x měsíčně na 3 hodiny od 2100 Kč/měs</em>.</p>
       </div>
@@ -338,7 +435,11 @@
     </div>
 
     <div style="margin-top: 40px; text-align: center;">
-      <p class="info-text">Máte zájem o jednorázový pronájem nebo trvalé partnerství?</p>
+      <a href="assets/kmenove_partnerstvi.pdf" target="_blank" class="btn btn-outline" style="margin-bottom: 20px;">
+        <i class="fa-solid fa-file-pdf"></i> Více informací (PDF)
+      </a>
+      <br>
+      <p class="info-text">Máte zájem?</p>
       <a href="mailto:info@placekostrava.cz" class="btn" style="display:inline-block;">Napište nám na info@placekostrava.cz</a>
     </div>
   </section>
@@ -354,6 +455,24 @@
     &copy; 2025 PlacOva z. s. · 
     <a href="mailto:info@placekostrava.cz" style="color:grey;">info@placekostrava.cz</a>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    // Kliknutí na hamburger otevře/zavře menu
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+
+    // Kliknutí na odkaz v menu zavře menu (aby nezůstalo viset)
+    navLinks.forEach(n => n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }));
+  </script>
 
 </body>
 </html>
